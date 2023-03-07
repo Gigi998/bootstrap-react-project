@@ -5,7 +5,6 @@ import {
   useContext,
   useEffect,
 } from "react";
-import Cart from "../components/Cart";
 import { api } from "../utils/api";
 import axios from "axios";
 
@@ -18,7 +17,7 @@ type ToursType = {
   name: string;
   info: string;
   image: string;
-  price: number;
+  price: string;
 };
 
 type CartType = {
@@ -90,10 +89,10 @@ export const ToursProvider = ({ children }: ToursProviderProps) => {
     });
   };
 
-  // Increase
+  // Decrease
   const decrease = (id: string) => {
     setCart((current) => {
-      if (current.find((item) => item.id === id)?.quantity === 1) {
+      if (current.find((item) => item.id === id)?.quantity == 1) {
         return [];
       } else {
         return current.map((item) => {

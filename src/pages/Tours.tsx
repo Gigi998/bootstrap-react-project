@@ -10,7 +10,9 @@ const Tours = () => {
   return (
     <>
       <Card>
-        <Card.Header className="m-auto">Our top tours</Card.Header>
+        <Card.Header className="m-auto fs-1 text-primary">
+          Our top tours
+        </Card.Header>
         <Card.Body className="p-5 d-flex flex-column ">
           {tours.map((item) => {
             return <SingleTour key={item.id} {...item} />;

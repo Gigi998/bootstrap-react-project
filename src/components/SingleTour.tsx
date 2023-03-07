@@ -1,12 +1,13 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { useToursContext } from "../context/toursContext";
+import { convertPrice } from "../utils/convertPrice";
 
 type SingleTourProps = {
   name: string;
   info: string;
   image: string;
-  price: number;
+  price: string;
   id: string;
 };
 
@@ -29,7 +30,7 @@ const SingleTour = ({ name, info, image, price, id }: SingleTourProps) => {
           {quantity === undefined ? (
             <>
               <Button onClick={() => addToCart(id)}>Add to cart</Button>
-              <h2 className="mt-3">{price}$</h2>
+              <h2 className="mt-3">{convertPrice(price)}$</h2>
             </>
           ) : (
             <div
